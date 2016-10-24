@@ -1,3 +1,7 @@
+#all but .ino
+*.*
+!*.ino
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
