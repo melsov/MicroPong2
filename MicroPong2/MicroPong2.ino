@@ -114,7 +114,11 @@ void displayGameStart()
 }
 
 /*
- * Get game mode from user
+ * Get game mode from user:
+ * Small jValue: they didn't move the joystick. return false
+ * Positive jValue: hard mode
+ * Negative jValue: easy mode
+ * Either way, return true 
 */
 bool theyChoseAGameMode() 
 {
@@ -170,6 +174,10 @@ void updateGame()
 
 float clampPaddlePosY(float paddlePosY)
 {
+	return constrain(paddlePosY, halfPaddleHeight, LCDHEIGHT - halfPaddleHeight); //Use this built-in function instead of the code below
+/*
+ * Below: not in use
+*/
 	float newPaddlePosY = paddlePosY;
 	
 	if (paddlePosY - halfPaddleHeight < 0)
@@ -212,6 +220,11 @@ float digitalJoystickValue() {
 	}
 }
 
+/*
+Get a new joystick value: 0, -1 or 1
+Move the paddle by paddleSpeed * jValue
+But don't go too far. Clamp playerPosY to screen pixel height
+*/
 void updatePlayer()
 {
 	float jValue = digitalJoystickValue();
