@@ -2,6 +2,7 @@
  Name:		MicroPong2.ino
  Created:	10/23/2016 12:21:45 PM
  Author:	melsov
+ Based on:  https://codebender.cc/sketch:40328#MicroPong.ino
 */
 
 // the setup function runs once when you press reset or power the board
